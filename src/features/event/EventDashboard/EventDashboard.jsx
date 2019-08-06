@@ -8,7 +8,7 @@ const eventsFromDashboard = [
     {
         id: '1',
         title: 'Trip to Tower of London',
-        date: '2018-03-27T11:00:00+00:00',
+        date: '2018-03-27',
         category: 'culture',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
@@ -32,7 +32,7 @@ const eventsFromDashboard = [
     {
         id: '2',
         title: 'Trip to Punch and Judy Pub',
-        date: '2018-03-28T14:00:00+00:00',
+        date: '2018-03-28',
         category: 'drinks',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
@@ -97,6 +97,26 @@ class EventDashboard extends Component {
         });
     };
 
+    handleUpdateEvent = (updatedEvent) => {
+        this.setState(({events}) => ({
+            events: events.map(event => {
+                if (event.id === updatedEvent.id) {
+                    return {...updatedEvent}
+                } else {
+                    return event
+                }
+            }),
+            isOpen: false,
+            selectedEvent: null
+        }));
+    };
+
+    handleDeleteEvent = (id) => {
+        this.setState(({events}) => ({
+            events: events.filter(e => e.id !== id)
+        }))
+    }
+
     render() {
         const { events, isOpen, selectedEvent } = this.state;
         return (
@@ -105,6 +125,7 @@ class EventDashboard extends Component {
                     <EventList
                         events={events}
                         selectEvent={this.handleSelectEvent}
+                        deleteEvent={this.handleDeleteEvent}
                     />
                 </Grid.Column>
 
@@ -116,6 +137,8 @@ class EventDashboard extends Component {
                     />
                     {isOpen && (
                         <EventForm
+                            key={selectedEvent ? selectedEvent.id : 0}
+                            updatedEvent={this.handleUpdateEvent}
                             selectedEvent={selectedEvent}
                             createEvent={this.handleCreateEvent}
                             cancelFormOpen={this.handleFormCancel}
