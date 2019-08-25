@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { Menu, Header } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import { Menu, Header } from 'semantic-ui-react';
 
 const SettingsNav = () => {
     return (

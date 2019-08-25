@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Menu, Container, Button } from 'semantic-ui-react';
 import { NavLink, Link, withRouter } from 'react-router-dom';
-import SignedOutMenu from '../Menus/SignedOutMenu';
-import SignedInMenu from '../Menus/SignedInMenu';
+import { Menu, Container, Button } from 'semantic-ui-react';
+
+import SignedOutMenu from './../Menus/SignedOutMenu';
+import SignedInMenu from './../Menus/SignedInMenu';
 
 class NavBar extends Component {
     state = {

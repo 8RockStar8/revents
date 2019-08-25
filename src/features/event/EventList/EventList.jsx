@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import EventListItem from "./EventListItem";
+import React, { Component, Fragment } from 'react';
+import EventListItem from './EventListItem';
 
 class EventList extends Component {
     render() {
@@ -7,7 +7,12 @@ class EventList extends Component {
         return (
             <Fragment>
                 {events.map(event => (
-                    <EventListItem key={ event.id } event={ event } selectEvent={selectEvent} deleteEvent={deleteEvent} />
+                    <EventListItem
+                        key={event.id}
+                        event={event}
+                        selectEvent={selectEvent}
+                        deleteEvent={deleteEvent}
+                    />
                 ))}
             </Fragment>
         );

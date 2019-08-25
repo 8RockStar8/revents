@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
-import SettingsNav from './SettingsNav';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import { Grid } from 'semantic-ui-react';
+
+import SettingsNav from './SettingsNav';
 import BasicPage from './BasicPage';
 import AboutPage from './AboutPage';
 import PhotosPage from './PhotosPage';

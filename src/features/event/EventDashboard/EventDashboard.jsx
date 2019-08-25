@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import cuid from 'cuid';
 import { Grid, Button } from 'semantic-ui-react';
-import EventList from '../EventList/EventList';
-import EventForm from '../EventForm/EventForm';
+
+import EventList from './../EventList/EventList';
+import EventForm from './../EventForm/EventForm';
 
 const eventsFromDashboard = [
     {
@@ -62,12 +63,6 @@ class EventDashboard extends Component {
         selectedEvent: null
     };
 
-    // handleIsOpenToggle = () => {
-    //     this.setState(({ isOpen }) => ({
-    //         isOpen: !isOpen
-    //     }));
-    // };
-
     handleCreateFormOpen = () => {
         this.setState({
             isOpen: true,
@@ -90,20 +85,20 @@ class EventDashboard extends Component {
         }));
     };
 
-    handleSelectEvent = (event) => {
+    handleSelectEvent = event => {
         this.setState({
             selectedEvent: event,
             isOpen: true
         });
     };
 
-    handleUpdateEvent = (updatedEvent) => {
-        this.setState(({events}) => ({
+    handleUpdateEvent = updatedEvent => {
+        this.setState(({ events }) => ({
             events: events.map(event => {
                 if (event.id === updatedEvent.id) {
-                    return {...updatedEvent}
+                    return { ...updatedEvent };
                 } else {
-                    return event
+                    return event;
                 }
             }),
             isOpen: false,
@@ -111,11 +106,11 @@ class EventDashboard extends Component {
         }));
     };
 
-    handleDeleteEvent = (id) => {
-        this.setState(({events}) => ({
+    handleDeleteEvent = id => {
+        this.setState(({ events }) => ({
             events: events.filter(e => e.id !== id)
-        }))
-    }
+        }));
+    };
 
     render() {
         const { events, isOpen, selectedEvent } = this.state;
