@@ -1,19 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './app/layout/App';
+import { configureStore } from './app/store/configureStore';
+
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
+
+const store = configureStore();
+
+console.log(store.getState());
 
 const rootEl = document.getElementById('root');
 
 let render = () => {
     ReactDOM.render(
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>, 
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>, 
         rootEl
     );
 };
