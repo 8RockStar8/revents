@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './app/layout/App';
 import { configureStore } from './app/store/configureStore';
 import ScrollToTop from './app/common/util/ScrollToTop';
-import { loadEvents } from './features/event/eventActions';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -15,7 +14,6 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import './index.css';
 
 const store = configureStore();
-store.dispatch(loadEvents());
 
 const rootEl = document.getElementById('root');
 
