@@ -1,6 +1,12 @@
 import React, { Fragment } from 'react';
 import { Segment, List, Item, Label } from 'semantic-ui-react';
 
+const style = {
+    display: 'block',
+    maxWidth: '128px',
+    height: '128px'
+};
+
 const EventDetailedSidebar = ({attendees}) => {
     const isHost = false;
     return (
@@ -28,7 +34,7 @@ const EventDetailedSidebar = ({attendees}) => {
                                     Host
                                 </Label>
                             }
-                            <Item.Image size='tiny' className='image' src={attendee.photoURL} />
+                            <Item.Image size='tiny' className='image' style={style} src={attendee.photoURL} />
                             <Item.Content verticalAlign='middle'>
                                 <Item.Header as='h3'>{attendee.name}</Item.Header>
                             </Item.Content>
